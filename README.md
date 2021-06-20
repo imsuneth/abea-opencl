@@ -1,4 +1,4 @@
-# Accelerating Adaptive Banded Event Alignment Algorithm on FPGAs using OpenCL
+# Energy Efficient Adaptive Banded Event Alignment using OpenCL on FPGAs
 
 ## Aim of the proposed project:
 
