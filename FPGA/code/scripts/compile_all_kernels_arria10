@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -x
+
+
+aocl help > /dev/null 2> /dev/null || source ~/fpga/init_env.sh
+rm -rf bin/*
+./scripts/compile_kernel_arria10 align || exit 1
+# ./scripts/compile_kernel_arria10 core  || exit 1
+# ./scripts/compile_kernel_arria10 post || exit 1
+make BIN=bins/bin  CPP=host/src/align_3k.cpp || exit 1
+bins/bin/host ~/fpga/f5c/dump_test/
+

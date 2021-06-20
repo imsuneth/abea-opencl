@@ -1,0 +1,9 @@
+FILE=$1
+BIN=bins/bin
+
+aoc -v -report -board=pac_a10 device/$FILE.cl -o $BIN/$FILE.aocx
+#aoc -v -report -board=pac_a10 device/$FILE.cl -o $BIN/$FILE.aocx -profile
+mv $BIN/$FILE.aocx $BIN/$FILE.tmp.aocx
+printf 'Y\nY\n' | $AOCL_BOARD_PACKAGE_ROOT/linux64/libexec/sign_aocx.sh -H openssl_manager -i $BIN/$FILE.tmp.aocx -r NULL -k NULL -o $BIN/$FILE.aocx
+rm $BIN/$FILE.tmp.aocx
+

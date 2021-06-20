@@ -1,0 +1,14 @@
+Compile:
+aoc -report -board=de5net_a7 device/align.cl -o bins/bin/align.aocx
+make BIN=bins/bin CPP=host/src/align_3k.cpp
+
+Run:
+./bins/bin/host ../dump_large_1.4M_0k_10k
+./bins/bin/host ../dump_large_1.3M
+
+Dynamic Profiler:
+aocl report bins/bin_prof/align.aocx bins/bin_prof/profile.mon bins/bin_prof/align.source
+
+Emulator:
+aoc -march=emulator -v -board=de5net_a7 device/align_single.cl -o bins/bin_single_emu/align.aocx
+env CL_CONTEXT_EMULATOR_DEVICE_INTELFPGA=1 bins/bin_single_emu/host ../dump_small

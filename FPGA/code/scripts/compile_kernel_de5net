@@ -1,0 +1,4 @@
+KERNEL=$1
+BIN=$2
+
+aoc -report -board=de5net_a7 device/$KERNEL.cl -o $BIN/$KERNEL.aocx -profile

@@ -1,0 +1,10 @@
+DATASET=$1
+
+#aoc -march=emulator -v -board=de5net_a7 device/pre.cl -o bins/bin_emu/pre.aocx
+#aoc -march=emulator -v -board=de5net_a7 device/core.cl -o bins/bin_emu/core.aocx
+#aoc -march=emulator -v -board=de5net_a7 device/post.cl -o bins/bin_emu/post.aocx
+
+aoc -march=emulator -v -board=de5net_a7 device/align.cl -o bins/bin_emu/align.aocx
+make BIN=bins/bin_emu clean
+make BIN=bins/bin_emu 
+env CL_CONTEXT_EMULATOR_DEVICE_INTELFPGA=1 bins/bin_emu/host $DATASET

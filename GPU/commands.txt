@@ -1,0 +1,4 @@
+GPU
+cd abea-on-fpga/GPU
+g++ align_cuda.c -o align.o -l OpenCL
+./align.o dump_large_1.3M

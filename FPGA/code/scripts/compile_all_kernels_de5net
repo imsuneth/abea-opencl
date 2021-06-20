@@ -1,0 +1,4 @@
+BIN=$1
+
+./scripts/compile_kernel_de5net align $BIN
+

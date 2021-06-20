@@ -1,0 +1,4 @@
+aoc -march=emulator -g -v -board=de5net_a7 device/align.cl -o bin_emu/align.aocx
+make DEBUG=1
+cp bin/host bin_emu/host
+env CL_CONTEXT_EMULATOR_DEVICE_INTELFPGA=1 valgrind bin_emu/host
